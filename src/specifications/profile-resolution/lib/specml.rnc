@@ -32,7 +32,11 @@ section.elem = element section { attribute id { xsd:ID }?, head.elem, misc, sect
 
 inline-mixed = (text | a | code | term | revisit | propose | em | strong | q | src | tgt | xpath | xref | int | inter | req )*
 
+<<<<<<< HEAD:src/specifications/profile-resolution/specml.rnc
 req = element req { attribute id { xsd:ID }?, attribute level { text }?, inline-mixed }
+=======
+req = element req { attribute id { xsd:ID }?, attribute level { text }?, attribute eg { text }?, inline-mixed }
+>>>>>>> 9b478f55 (Integration work on specs and unit tests / XSLT and Schematron):src/specifications/profile-resolution/lib/specml.rnc
 inter = element inter { text }
 a       = element a       { attribute href { text }, text }
 code    = element code    { text }

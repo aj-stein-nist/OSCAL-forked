@@ -28,6 +28,7 @@
         <xsl:variable name="page">
           <xsl:apply-templates/>
         </xsl:variable>
+        <!-- Micropipeline postprocesses the results -->
         <xsl:apply-templates select="$page" mode="for-serialization"/>
         <!--</div>-->
     </xsl:template>
@@ -51,9 +52,5 @@
             <xsl:apply-templates select="node()" mode="#current"/>
         </xsl:element>
     </xsl:template>
-
-
-
-
 
 </xsl:stylesheet>
