@@ -3,7 +3,7 @@
 
 ## Track the upstream
 
-Show remotes:
+To show all remotes:
 ```
 git remote -v
 ```
