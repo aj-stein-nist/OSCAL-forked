@@ -9,13 +9,13 @@ on:
       site_git_ref:
         description: 'the target git ref, a SHA commit or branch or tag, to scan existing HTML content'
         required: true
-        default: 'nist_pages'
+        default: 'nist-pages'
         type: string
 jobs:
   schedule-link-check:
     runs-on: ubuntu-latest
     env:
-      SITE_GIT_REF: nist_pages
+      SITE_GIT_REF: nist-pages
       SITE_GIT_REF_PATH: published
     steps:
     - name: Set published site git ref from input or use default
