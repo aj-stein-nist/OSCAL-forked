@@ -29,7 +29,6 @@ jobs:
     - name: Checkout Latest
       uses: actions/checkout@v3
       with:
-        submodules: recursive
         fetch-depth: 0 # this ensures that the tag and commit history are available
     # use this for builds triggered from the UI on protected branches
     - name: Checkout git ref of published website content (using COMMIT_TOKEN)
