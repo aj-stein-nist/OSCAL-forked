@@ -20,6 +20,9 @@ jobs:
       with:
         ref: ${{ github.event.inputs.checkout_ref }}
 
+    - run: |
+        pwd
+
     - name: Check website HTML content links
       id: linkchecker
       uses: lycheeverse/lychee-action@f1da3291e1d03cbe11a413ae9f16b62fec99e6b6 # v1.4.1
