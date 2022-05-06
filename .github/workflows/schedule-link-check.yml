@@ -1,0 +1,41 @@
+name: Scheduled Link Check for Website Content
+
+on:
+  schedule:
+    - cron: "00 19 * * *"
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      checkout_ref:
+        description: 'the target git ref, a SHA commit or branch or tag, to scan existing HTML content'
+        required: true
+        default: 'nist-pages'
+        type: string
+jobs:
+  schedule-link-check:
+    runs-on: ubuntu-latest
+    steps:
+    - run: 
+    - uses: actions/checkout@v3
+      name: Check out repository
+      with:
+        ref: ${{ github.event.inputs.checkout_ref }}
+
+    - name: Check website HTML content links
+      id: linkchecker
+      uses: lycheeverse/lychee-action@f1da3291e1d03cbe11a413ae9f16b62fec99e6b6 # v1.4.1
+      with:
+        args: --exclude-file ./build/config/.lycheeignore --verbose --no-progress './docs/public/**/*.html' --accept 200,206,429
+        format: markdown
+        output: html_link_report.md
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create issue if bad links detected
+      if: steps.linkchecker.outputs.exit_code != 0
+      uses: peter-evans/create-issue-from-file@97e6f902a416aac38834e23fa52e166aad0437d2 # v3.0.0
+      with:
+        title: Link Checker Report
+        content-filepath: html_link_report.md
+        labels:
+        - 'Scope: '
