@@ -36,4 +36,4 @@ jobs:
       with:
         title: Link Checker Report
         content-filepath: html_link_report.md
-        labels: 'bug', 'Scope: Documentation'
+        labels: bug
