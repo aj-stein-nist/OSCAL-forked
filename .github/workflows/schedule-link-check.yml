@@ -15,8 +15,8 @@ jobs:
   schedule-link-check:
     runs-on: ubuntu-latest
     env:
-      DEFAULT_SITE_GIT_REF=nist_pages
-      SITE_GIT_REF_PATH=published
+      DEFAULT_SITE_GIT_REF: nist_pages
+      SITE_GIT_REF_PATH: published
     steps:
     - name: Set published site git ref from input or use default
       run: |
