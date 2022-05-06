@@ -6,7 +6,7 @@ on:
   repository_dispatch:
   workflow_dispatch:
     inputs:
-      checkout_ref:
+      published_site_git_ref:
         description: 'the target git ref, a SHA commit or branch or tag, to scan existing HTML content'
         required: true
         default: 'nist-pages'
@@ -14,20 +14,45 @@ on:
 jobs:
   schedule-link-check:
     runs-on: ubuntu-latest
+    env:
+      DEFAULT_SITE_GIT_REF=nist_pages
+      SITE_GIT_REF_PATH=published
     steps:
-    - uses: actions/checkout@v3
-      name: Check out repository
+    - name: Set published site git ref from input or use default
+      runs: |
+      echo SITE_GIT_REF=${${{ github.event.inputs.published_site_git_ref }}:-$DEFAULT_SITE_GIT_REF}" >> $GITHUB_ENV
+    # This workflow requires two branches to be checked out
+    # 1) The main branch where live web assets are managed. Generated reference pages need to be
+    #    pushed here.
+    # 2) The target branch where the metaschemas exist that are the basis of reference information.
+    # Checkout the current branch for reading
+    - name: Checkout Latest
+      uses: actions/checkout@v3
       with:
-        ref: ${{ github.event.inputs.checkout_ref }}
-
-    - run: |
-        pwd
+        submodules: recursive
+        fetch-depth: 0 # this ensures that the tag and commit history are available
+    # use this for builds triggered from the UI on protected branches
+    - name: Checkout git ref of published website content (using COMMIT_TOKEN)
+      if: github.event_name == 'workflow_dispatch' && github.event.inputs.published_site_git_ref
+      uses: actions/checkout@v3
+      with:
+        path: ${{ env.SITE_GIT_REF_PATH }}
+        ref: ${{ env.SITE_GIT_REF }}
+        token: ${{ secrets.COMMIT_TOKEN }}
+      id: checkout_main_workflow
+    # use this for overything else (i.e., pull requests) where publication is not needed
+    - name: Checkout git ref of published website content
+      if: if: github.event_name != 'workflow_dispatch'
+      uses: actions/checkout@v3
+      with:
+        path: ${{ env.SITE_GIT_REF_PATH }}
+        ref: ${{ env.SITE_GIT_REF }}
 
     - name: Check website HTML content links
       id: linkchecker
       uses: lycheeverse/lychee-action@f1da3291e1d03cbe11a413ae9f16b62fec99e6b6 # v1.4.1
       with:
-        args: --exclude-file ./build/config/.lycheeignore --verbose --no-progress './docs/public/**/*.html' --accept 200,206,429
+        args: --exclude-file ./build/config/.lycheeignore --verbose --no-progress "./$SITE_GIT_REF_PATH/**/*.html" --accept 200,206,429
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
