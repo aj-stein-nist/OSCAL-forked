@@ -28,8 +28,6 @@ jobs:
       uses: lycheeverse/lychee-action@f1da3291e1d03cbe11a413ae9f16b62fec99e6b6 # v1.4.1
       with:
         args: --exclude-file ./build/config/.lycheeignore --verbose --no-progress './docs/public/**/*.html' --accept 200,206,429
-        format: markdown
-        output: html_link_report.md
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -38,5 +36,5 @@ jobs:
       uses: peter-evans/create-issue-from-file@97e6f902a416aac38834e23fa52e166aad0437d2 # v3.0.0
       with:
         title: Link Checker Report
-        content-filepath: html_link_report.md
+        content-filepath: ./lychee/out.md
         labels: bug
