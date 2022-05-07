@@ -15,12 +15,17 @@ jobs:
   schedule-link-check:
     runs-on: ubuntu-latest
     env:
-      SITE_GIT_REF: nist-pages
+      DEFAULT_SITE_GIT_REF: nist-pages
       SITE_GIT_REF_PATH: published
     steps:
-    - name: Set published site git ref from input or use default
+    - name: Set published site git ref (from workflow_dispatch input)
+      if: github.event_name == 'workflow_dispatch' && github.event.inputs.site_git_ref
       run: |
-        echo SITE_GIT_REF=${'${{ github.event.inputs.site_git_ref }}':-"${{ env.SITE_GIT_REF }}"} >> $GITHUB_ENV
+        echo SITE_GIT_REF="${{ github.event.inputs.site_git_ref }}"
+    - name: Set published site git ref (default)
+      if: github.event_name != 'workflow_dispatch'
+      run: |
+        echo SITE_GIT_REF="${{ DEFAULT_SITE_GIT_REF }}"
     # This workflow requires two branches to be checked out
     # 1) The main branch where live web assets are managed. Generated reference pages need to be
     #    pushed here.
