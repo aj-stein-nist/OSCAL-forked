@@ -25,7 +25,7 @@ jobs:
     - name: Set published site git ref (default)
       if: github.event_name != 'workflow_dispatch'
       run: |
-        echo SITE_GIT_REF="${{ DEFAULT_SITE_GIT_REF }}"
+        echo SITE_GIT_REF="${{ env.DEFAULT_SITE_GIT_REF }}"
     # This workflow requires two branches to be checked out
     # 1) The main branch where live web assets are managed. Generated reference pages need to be
     #    pushed here.
