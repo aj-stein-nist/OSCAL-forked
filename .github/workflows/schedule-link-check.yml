@@ -55,7 +55,7 @@ jobs:
       id: linkchecker
       uses: lycheeverse/lychee-action@f1da3291e1d03cbe11a413ae9f16b62fec99e6b6 # v1.4.1
       with:
-        args: --exclude-file ./build/config/.lycheeignore --verbose --no-progress "./${{ env.SITE_GIT_REF_PATH }}/**/*.html" --accept 200,206,429
+        args: --exclude-file ./build/config/.lycheeignore --verbose --no-progress https://pages.nist.gov/OSCAL/ --accept 200,206,429
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
