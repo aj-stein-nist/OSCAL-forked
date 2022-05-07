@@ -7,25 +7,32 @@ on:
   workflow_dispatch:
     inputs:
       site_git_ref:
-        description: 'the target git ref, a SHA commit or branch or tag, to scan existing HTML content'
+        description: 'the target git ref, a SHA commit or branch or tag, for the published HTML content'
         required: true
         default: 'nist-pages'
+        type: string
+      site_git_ref_path:
+        description: 'the subdirectory for target git ref where the link checker will scan for HTML content files'
+        required: true
+        default: 'published'
         type: string
 jobs:
   schedule-link-check:
     runs-on: ubuntu-latest
     env:
       DEFAULT_SITE_GIT_REF: nist-pages
-      SITE_GIT_REF_PATH: published
+      DEFAULT_SITE_GIT_REF_PATH: published
     steps:
     - name: Set published site git ref (from workflow_dispatch input)
       if: github.event_name == 'workflow_dispatch' && github.event.inputs.site_git_ref
       run: |
         echo SITE_GIT_REF="${{ github.event.inputs.site_git_ref }}"
+        echo SITE_GIT_REF_PATH="${{ github.event.inputs.site_git_ref_path }}"
     - name: Set published site git ref (default)
       if: github.event_name != 'workflow_dispatch'
       run: |
         echo SITE_GIT_REF="${{ env.DEFAULT_SITE_GIT_REF }}"
+        echo SITE_GIT_REF_PATH="${{ env.DEFAULT_SITE_GIT_REF_PATH }}"
     # This workflow requires two branches to be checked out
     # 1) The main branch where live web assets are managed. Generated reference pages need to be
     #    pushed here.
