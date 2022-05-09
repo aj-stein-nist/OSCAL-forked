@@ -17,7 +17,9 @@ on:
         default: 'published'
         type: string
 jobs:
-  schedule-link-check:
+  schedule-validate-repo-markdown-links:
+    uses: ./.github/workflows/workflow-validate-repo-markdown.yml
+  schedule-validate-website-links:
     runs-on: ubuntu-latest
     env:
       DEFAULT_SITE_GIT_REF: nist-pages
