@@ -78,14 +78,18 @@ jobs:
     # Build Artifacts
     # ---------------
     - name: Validate repo Markdown content instances
-      id: linkchecker
+      continue-on-error: true
       run: |
         # this command will filter out any docs Markdown files, which are checked in a different job
-        git ls-files "*.md" -z | grep --null-data -v "${{ github.event.inputs.ignorePattern }}${{ inputs.ignorePattern }}" | xargs -0 markdown-link-check -c "${{ github.event.inputs.markdownLinkCheckConfig }}${{ inputs.markdownLinkCheckConfig }}"
+        git ls-files "*.md" -z | \
+        grep --null-data -v "${{ github.event.inputs.ignorePattern }}${{ inputs.ignorePattern }}" | \
+        xargs -0 markdown-link-check -c "${{ github.event.inputs.markdownLinkCheckConfig }}${{ inputs.markdownLinkCheckConfig }}" \
+        tee mlc_report.log
+      id: linkchecker
     - name: Create issue if bad links detected
       if: steps.linkchecker.outputs.exit_code != 0 && env.CREATE_ISSUE
       uses: peter-evans/create-issue-from-file@97e6f902a416aac38834e23fa52e166aad0437d2 # v3.0.0
       with:
         title: Link Checker Report
-        content-filepath: steps.linkchecker.report
+        content-filepath: mlc_report.log
         labels: bug
