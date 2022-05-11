@@ -47,11 +47,11 @@ jobs:
     # cron job has no access to these context inputs. So we work around that with
     # defaults or interactive values bound to env vars.
     - name: Set up env (enable issue creation)
-      if: github.event.inputs.createIssue == true || inputs.createIssue == 'true'
+      if: github.event.inputs.createIssue == 'true' || inputs.createIssue == true
       run: |
         echo CREATE_ISSUE=true >> $GITHUB_ENV
     - name: Set up env (disable issue creation)
-      if: github.event.inputs.createIssue == false && inputs.createIssue == 'false'
+      if: github.event.inputs.createIssue == 'false' && inputs.createIssue == false
       run: |
         echo CREATE_ISSUE=false >> $GITHUB_ENV
     # Setup runtime environment
