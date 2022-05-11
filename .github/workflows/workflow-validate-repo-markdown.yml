@@ -81,16 +81,11 @@ jobs:
       id: linkchecker
       run: |
         # this command will filter out any docs Markdown files, which are checked in a different job
-        git ls-files "*.md" -z | grep --null-data -v "${{ inputs.ignorePattern }}" | xargs -0 markdown-link-check -c "${{ inputs.markdownLinkCheckConfig }}" | tee mlc_report.log
-        # PIPESTATUS is a 0 index array of exit codes in a pipe, 2 is xargs mlc exec and 3 is the tee command
-        exit_code=${PIPESTATUS[2]}
-        echo "::set-output name=mlc_report::$(cat mlc_report.log)"
-        echo 0 exits ${PIPESTATUS[0]} 1 exits ${PIPESTATUS[1]} 2 is ${PIPESTATUS[2]}
-        exit $exit_code
+        echo "::set-output name=report::$(git ls-files "*.md" -z | grep --null-data -v "${{ inputs.ignorePattern }}" | xargs -0 markdown-link-check -c "${{ inputs.markdownLinkCheckConfig }}")\n"
     - name: Create issue if bad links detected
       if: steps.linkchecker.outputs.exit_code != 0 && env.CREATE_ISSUE
       uses: peter-evans/create-issue-from-file@97e6f902a416aac38834e23fa52e166aad0437d2 # v3.0.0
       with:
         title: Link Checker Report
-        content-filepath: mlc_report.log
+        content-filepath: steps.linkchecker.report
         labels: bug
