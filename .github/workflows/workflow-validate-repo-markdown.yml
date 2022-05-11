@@ -11,7 +11,7 @@ on:
         description: 'the path to the markdown link check config file'
         required: false
         default: 'build/config/.markdown-link-check/config.json'
-        type: 
+        type: string
       createIssue:
         description: 'determines if reports of broken links open a new GitHub issue'
         required: false
