@@ -59,4 +59,4 @@ jobs:
     - name: Validate repo Markdown content instances
       run: |
         # this command will filter out any docs Markdown files, which are checked in a different job
-        git ls-files "*/*.md" -z | grep --null-data -v "${{ inputs.ignorePattern }}" | xargs -0 -n1 markdown-link-check -q -c "${{ inputs.markdownLinkCheckConfig }}"
+        git ls-files "*/*.md" -z | grep --null-data -v "${{ inputs.ignorePattern }}" | xargs -0 markdown-link-check -q -c "${{ inputs.markdownLinkCheckConfig }}"
