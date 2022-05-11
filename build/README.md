@@ -1,5 +1,7 @@
 # OSCAL Ci/CD Build Tools
 
+[Throw Error](https://dnedomain.dnetld)
+
 This subdirectory contains a set of build scripts used to create OSCAL-related artifacts (e.g., schemas, converters, documentation). Below are instructions for building using these scripts.
 
 ## Prerequisites
