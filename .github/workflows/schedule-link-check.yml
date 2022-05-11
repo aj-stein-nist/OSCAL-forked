@@ -19,6 +19,8 @@ on:
 jobs:
   schedule-validate-repo-markdown-links:
     uses: ./.github/workflows/workflow-validate-repo-markdown.yml
+    with:
+      createIssue: true
   schedule-validate-website-links:
     runs-on: ubuntu-latest
     env:
