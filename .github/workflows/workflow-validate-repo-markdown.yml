@@ -81,7 +81,7 @@ jobs:
       id: linkchecker
       run: |
         # this command will filter out any docs Markdown files, which are checked in a different job
-        echo "::set-output name=report::$(git ls-files "*.md" -z | grep --null-data -v "${{ inputs.ignorePattern }}" | xargs -0 markdown-link-check -c "${{ inputs.markdownLinkCheckConfig }}")\n"
+        echo "::set-output name=report::$(git ls-files \"*.md\" -z | grep --null-data -v \"${{ inputs.ignorePattern }}\" | xargs -0 -n1 markdown-link-check -c \"${{ inputs.markdownLinkCheckConfig }}\")\n"
     - name: Create issue if bad links detected
       if: steps.linkchecker.outputs.exit_code != 0 && env.CREATE_ISSUE
       uses: peter-evans/create-issue-from-file@97e6f902a416aac38834e23fa52e166aad0437d2 # v3.0.0
