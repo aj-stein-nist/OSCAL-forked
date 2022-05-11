@@ -16,6 +16,7 @@ on:
         description: 'determines if reports of broken links open a new GitHub issue'
         required: false
         default: false
+        type: boolean
   workflow_dispatch:
     inputs:
       ignorePattern:
@@ -32,6 +33,7 @@ on:
         description: 'determines if reports of broken links open a new GitHub issue'
         required: false
         default: false
+        type: boolean
 jobs:
   validate-repo-markdown:
     name: Validate Repo Markdown
