@@ -87,7 +87,7 @@ jobs:
         tee mlc_report.log
       id: linkchecker
     - name: Create issue if bad links detected
-      if: failure() && steps.linkchecker.outputs.exit_code != 0 && env.CREATE_ISSUE
+      if: failure() && env.CREATE_ISSUE
       uses: peter-evans/create-issue-from-file@97e6f902a416aac38834e23fa52e166aad0437d2 # v3.0.0
       with:
         title: Link Checker Report
