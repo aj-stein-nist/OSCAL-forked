@@ -84,6 +84,8 @@ jobs:
         grep --null-data -v "${{ github.event.inputs.ignorePattern }}${{ inputs.ignorePattern }}" | \
         xargs -0 markdown-link-check -c "${{ github.event.inputs.markdownLinkCheckConfig }}${{ inputs.markdownLinkCheckConfig }}" | \
         tee mlc_report.log
+        # Exit code of xargs and markdown-link-check, not git or grep or tee pipe elements
+        exit ${PIPESTATUS[2]}
       id: linkchecker
     - name: Create issue if bad links detected
       if: failure() && env.CREATE_ISSUE
