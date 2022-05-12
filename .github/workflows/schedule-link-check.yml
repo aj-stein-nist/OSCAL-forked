@@ -47,7 +47,7 @@ jobs:
       with:
         fetch-depth: 0 # this ensures that the tag and commit history are available
     - run: |
-        echo ${{ fromJSON(job.schedule-validate-repo-markdown-links.linkchecker) }} 
+        echo ${{ needs.schedule-validate-repo-markdown-links.exit_code }} 
     # use this for builds triggered from the UI on protected branches
     - name: Checkout git ref of published website content (using COMMIT_TOKEN)
       if: github.event_name == 'workflow_dispatch' && github.event.inputs.site_git_ref
