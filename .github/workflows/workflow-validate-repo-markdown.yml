@@ -43,17 +43,6 @@ jobs:
     - uses: actions/checkout@v3 # current: dcd71f646680f2efd8db4afa5ad64fdcba30e748
       with:
         submodules: recursive
-    # Variable setup needed to support workflow_call and workflow_Dispath, but the
-    # cron job has no access to these context inputs. So we work around that with
-    # defaults or interactive values bound to env vars.
-    - name: Set up env (enable issue creation)
-      if: github.event.inputs.createIssue == 'true' || inputs.createIssue == true
-      run: |
-        echo CREATE_ISSUE=true >> $GITHUB_ENV
-    - name: Set up env (disable issue creation)
-      if: github.event.inputs.createIssue == 'false' && inputs.createIssue == false
-      run: |
-        echo CREATE_ISSUE=false >> $GITHUB_ENV
     # Setup runtime environment
     # -------------------------
     - name: Set up NodeJS
@@ -88,7 +77,7 @@ jobs:
         exit ${PIPESTATUS[2]}
       id: linkchecker
     - name: Create issue if bad links detected
-      if: failure() && env.CREATE_ISSUE
+      if: failure() && (github.event.inputs.createIssue == 'true' || inputs.createIssue == true)
       uses: peter-evans/create-issue-from-file@97e6f902a416aac38834e23fa52e166aad0437d2 # v3.0.0
       with:
         title: Link Checker Report
