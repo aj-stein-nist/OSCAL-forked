@@ -78,7 +78,6 @@ jobs:
     # Build Artifacts
     # ---------------
     - name: Validate repo Markdown content instances
-      continue-on-error: true
       run: |
         # this command will filter out any docs Markdown files, which are checked in a different job
         git ls-files "*.md" -z | \
