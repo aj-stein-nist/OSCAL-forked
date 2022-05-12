@@ -83,7 +83,7 @@ jobs:
         # this command will filter out any docs Markdown files, which are checked in a different job
         git ls-files "*.md" -z | \
         grep --null-data -v "${{ github.event.inputs.ignorePattern }}${{ inputs.ignorePattern }}" | \
-        xargs -0 markdown-link-check -c "${{ github.event.inputs.markdownLinkCheckConfig }}${{ inputs.markdownLinkCheckConfig }}" \
+        xargs -0 markdown-link-check -c "${{ github.event.inputs.markdownLinkCheckConfig }}${{ inputs.markdownLinkCheckConfig }}" | \
         tee mlc_report.log
       id: linkchecker
     - name: Create issue if bad links detected
