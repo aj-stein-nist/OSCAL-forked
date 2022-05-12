@@ -13,7 +13,7 @@ on:
         default: 'build/config/.markdown-link-check/config.json'
         type: string
       createIssue:
-        description: 'determines if reports of broken links open a new GitHub issue'
+        description: 'create new GitHub issue if broken links found'
         required: false
         default: false
         type: boolean
@@ -30,7 +30,7 @@ on:
         default: 'build/config/.markdown-link-check/config.json'
         type: string
       createIssue:
-        description: 'determines if reports of broken links open a new GitHub issue'
+        description: 'create new GitHub issue if broken links found'
         required: false
         default: false
         type: boolean
@@ -80,6 +80,6 @@ jobs:
       if: failure() && (github.event.inputs.createIssue == 'true' || inputs.createIssue == true)
       uses: peter-evans/create-issue-from-file@97e6f902a416aac38834e23fa52e166aad0437d2 # v3.0.0
       with:
-        title: Link Checker Report
+        title: Scheduled Check of Markdown Documents Found Bad Hyperlinks
         content-filepath: mlc_report.log
         labels: bug
