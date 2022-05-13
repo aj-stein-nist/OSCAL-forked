@@ -76,10 +76,3 @@ jobs:
         # Exit code of xargs and markdown-link-check, not git or grep or tee pipe elements
         exit ${PIPESTATUS[2]}
       id: linkchecker
-    - name: Create issue if bad links detected
-      if: failure() && (github.event.inputs.createIssue == 'true' || inputs.createIssue == true)
-      uses: peter-evans/create-issue-from-file@97e6f902a416aac38834e23fa52e166aad0437d2 # v3.0.0
-      with:
-        title: Scheduled Check of Markdown Documents Found Bad Hyperlinks
-        content-filepath: mlc_report.log
-        labels: bug

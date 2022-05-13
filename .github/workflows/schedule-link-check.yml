@@ -55,3 +55,12 @@ jobs:
       site_git_ref: ${{ github.event.inputs.site_git_ref }}
       site_git_ref_path: ${{ github.event.inputs.site_git_ref_path }}
       createIssue: true
+  create-issues:
+    - name: Create issue if bad links detected in repo
+      #if: failure() && (github.event.inputs.createIssue == 'true' || inputs.createIssue == true)
+      if: jobs.schedule-validate-website-links.linkcheck.outcome == 'failure'
+      uses: peter-evans/create-issue-from-file@97e6f902a416aac38834e23fa52e166aad0437d2 # v3.0.0
+      with:
+        title: Scheduled Check of Markdown Documents Found Bad Hyperlinks
+        content-filepath: mlc_report.log
+        labels: bug
