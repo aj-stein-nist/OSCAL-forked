@@ -6,6 +6,16 @@ on:
   repository_dispatch:
   workflow_dispatch:
     inputs:
+      ignorePattern:
+        description: 'a pattern provided to grep for files/directories to ignore'
+        required: false
+        default: '^docs/'
+        type: string
+      markdownLinkCheckConfig:
+        description: 'the path to the markdown link check config file'
+        required: false
+        default: 'build/config/.markdown-link-check/config.json'
+        type: string
       site_git_ref:
         description: 'git ref, a SHA commit or branch or tag, for the published HTML content'
         required: true
@@ -20,6 +30,14 @@ jobs:
   schedule-validate-repo-markdown-links:
     uses: ./.github/workflows/workflow-validate-repo-markdown.yml
     with:
+      ignorePattern: ${{ github.event.inputs.ignorePattern }}
+      markdownLinkCheckConfig: ${{ github.event.inputs.markdownLinkCheckConfig }}
+      createIssue: true
+  schedule-validate-repo-markdown-links-debug:
+    uses: ./.github/workflows/workflow-validate-repo-markdown.yml
+    with:
+      ignorePattern: '^docs/'
+      markdownLinkCheckConfig: 'build/config/.markdown-link-check/config.json'
       createIssue: true
   schedule-validate-website-links:
     uses: ./.github/workflows/workflow-validate-website-content.yml
