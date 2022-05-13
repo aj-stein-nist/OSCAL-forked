@@ -29,12 +29,14 @@ on:
 jobs:
   schedule-validate-repo-markdown-links:
     uses: ./.github/workflows/workflow-validate-repo-markdown.yml
+    if: github.event_name == 'workflow_dispatch'
     with:
       ignorePattern: ${{ github.event.inputs.ignorePattern }}
       markdownLinkCheckConfig: ${{ github.event.inputs.markdownLinkCheckConfig }}
       createIssue: true
   schedule-validate-repo-markdown-links-debug:
     uses: ./.github/workflows/workflow-validate-repo-markdown.yml
+    if: github.event_name != 'workflow_dispatch'
     with:
       ignorePattern: '^docs/'
       markdownLinkCheckConfig: 'build/config/.markdown-link-check/config.json'
