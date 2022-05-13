@@ -23,14 +23,14 @@ jobs:
       createIssue: true
   schedule-validate-website-links:
     uses: ./.github/workflows/workflow-validate-website-content.yml
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name != 'workflow_dispatch'
     with:
       site_git_ref: 'nist-pages'
       site_git_ref_path: 'published'
       createIssue: true
   schedule-validate-website-links-debug:
     uses: ./.github/workflows/workflow-validate-website-content.yml
-    if: github.event_name != 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch'
     with:
       site_git_ref: ${{ github.event.inputs.site_git_ref }}
       site_git_ref_path: ${{ github.event.inputs.site_git_ref_path }}
