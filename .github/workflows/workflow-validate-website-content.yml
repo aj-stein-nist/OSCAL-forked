@@ -53,24 +53,14 @@ jobs:
         echo SITE_GIT_REF="${{ env.DEFAULT_SITE_GIT_REF }}" >> $GITHUB_ENV
         echo SITE_GIT_REF_PATH="${{ env.DEFAULT_SITE_GIT_REF_PATH }}" >> $GITHUB_ENV
     # This workflow requires two branches to be checked out
-    # 1) The main branch where live web assets are managed. Generated reference pages need to be
-    #    pushed here.
-    # 2) The target branch where the metaschemas exist that are the basis of reference information.
+    # 1) The main branch with all code, including website content link checker config.
+    # 2) The target branch where the website content, rendered from source code, is saved.
     # Checkout the current branch for reading
     - name: Checkout Latest
       uses: actions/checkout@v3
       with:
         fetch-depth: 0 # this ensures that the tag and commit history are available
-    # use this for builds triggered from the UI on protected branches
-    - name: Checkout git ref of published website content (using COMMIT_TOKEN)
-      if: github.event_name == 'workflow_dispatch' && github.event.inputs.site_git_ref
-      uses: actions/checkout@v3
-      with:
-        path: ${{ env.SITE_GIT_REF_PATH }}
-        ref: ${{ env.SITE_GIT_REF }}
-        token: ${{ secrets.COMMIT_TOKEN }}
       id: checkout_main_workflow
-    # use this for overything else (i.e., pull requests) where publication is not needed
     - name: Checkout git ref of published website content
       if: github.event_name != 'workflow_dispatch'
       uses: actions/checkout@v3
