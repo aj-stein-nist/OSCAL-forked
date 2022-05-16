@@ -65,4 +65,6 @@ jobs:
       with:
         title: Scheduled Check of Markdown Documents Found Bad Hyperlinks
         content-filepath: mlc_report.log
-        labels: bug
+        labels: |
+          bug
+          Scope: Documentation

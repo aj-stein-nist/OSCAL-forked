@@ -153,23 +153,15 @@ jobs:
         path: |
           ${{ runner.temp }}/metaschema-website.zip
         retention-days: 5
-    # - name: Link Checker
-    #   id: linkchecker
-    #   uses: lycheeverse/lychee-action@f1da3291e1d03cbe11a413ae9f16b62fec99e6b6 # v1.4.1
-    #   with:
-    #     args: --exclude-file ./build/config/.lycheeignore --verbose --no-progress './docs/public/**/*.html' --accept 200,206,429
-    #     format: markdown
-    #     output: html_link_report.md
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Link Checker
-      uses: ./.github/workflows/workflow-validate-website-content.yml
-      with:
-        needs_checkout: false
-        site_git_ref: 'nist-pages'
-        site_git_ref_path: 'published'
-        createIssue: false
       id: linkchecker
+      uses: lycheeverse/lychee-action@f1da3291e1d03cbe11a413ae9f16b62fec99e6b6 # v1.4.1
+      with:
+        args: --exclude-file ./build/config/.lycheeignore --verbose --no-progress './docs/public/**/*.html' --accept 200,206,429
+        format: markdown
+        output: html_link_report.md
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions/upload-artifact@v3 # current: 6673cd052c4cd6fcf4b4e6e60ea986c889389535
       with:
         name: html_link_report
