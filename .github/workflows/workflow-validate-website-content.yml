@@ -3,23 +3,11 @@ name: Validate Website Content
 on:
   workflow_call:
     inputs:
-      site_git_ref:
-        description: 'git ref, a SHA commit or branch or tag, for the published HTML content'
+      needs_checkout:
+        description: 'check out another branch before scanning path'
         required: true
-        default: 'nist-pages'
-        type: string
-      site_git_ref_path:
-        description: 'the subdirectory to check out git ref and check links in website content'
-        required: true
-        default: 'published'
-        type: string
-      createIssue:
-        description: 'create new GitHub issue if broken links found'
-        required: false
-        default: false
+        default: true
         type: boolean
-  workflow_dispatch:
-    inputs:
       site_git_ref:
         description: 'git ref, a SHA commit or branch or tag, for the published HTML content'
         required: true
@@ -58,11 +46,12 @@ jobs:
     # Checkout the current branch for reading
     - name: Checkout Latest
       uses: actions/checkout@v3
+      if: inputs.needs_checkout
       with:
         fetch-depth: 0 # this ensures that the tag and commit history are available
       id: checkout_main_workflow
     - name: Checkout git ref of published website content
-      if: github.event_name != 'workflow_dispatch'
+      if: inputs.needs_checkout
       uses: actions/checkout@v3
       with:
         path: ${{ env.SITE_GIT_REF_PATH }}
@@ -74,7 +63,6 @@ jobs:
         args: --exclude-file ./build/config/.lycheeignore --verbose --no-progress --accept 200,206,429 './published/**/*.html'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Create issue if bad links detected
       if: steps.linkchecker.outputs.exit_code != 0 && (github.event.inputs.createIssue || github.event.inputs.createIssue)
       uses: peter-evans/create-issue-from-file@97e6f902a416aac38834e23fa52e166aad0437d2 # v3.0.0

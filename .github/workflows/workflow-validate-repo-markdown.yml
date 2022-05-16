@@ -17,23 +17,6 @@ on:
         required: false
         default: false
         type: boolean
-  workflow_dispatch:
-    inputs:
-      ignorePattern:
-        description: 'a pattern provided to grep for files/directories to ignore'
-        required: false
-        default: '^docs/'
-        type: string
-      markdownLinkCheckConfig:
-        description: 'the path to the markdown link check config file'
-        required: false
-        default: 'build/config/.markdown-link-check/config.json'
-        type: string
-      createIssue:
-        description: 'create new GitHub issue if broken links found'
-        required: false
-        default: false
-        type: boolean
 jobs:
   validate-repo-markdown:
     name: Validate Repo Markdown
@@ -70,14 +53,14 @@ jobs:
       run: |
         # this command will filter out any docs Markdown files, which are checked in a different job
         git ls-files "*.md" -z | \
-        grep --null-data -v "${{ github.event.inputs.ignorePattern }}${{ inputs.ignorePattern }}" | \
-        xargs -0 markdown-link-check -c "${{ github.event.inputs.markdownLinkCheckConfig }}${{ inputs.markdownLinkCheckConfig }}" | \
+        grep --null-data -v "${{ inputs.ignorePattern }}" | \
+        xargs -0 markdown-link-check -c "${{ inputs.markdownLinkCheckConfig }}" | \
         tee mlc_report.log
         # Exit code of xargs and markdown-link-check, not git or grep or tee pipe elements
         exit ${PIPESTATUS[2]}
       id: linkchecker
     - name: Create issue if bad links detected in repo
-      if: failure() && (github.event.inputs.createIssue == 'true' || inputs.createIssue == true)
+      if: failure() && inputs.createIssue == true
       uses: peter-evans/create-issue-from-file@97e6f902a416aac38834e23fa52e166aad0437d2 # v3.0.0
       with:
         title: Scheduled Check of Markdown Documents Found Bad Hyperlinks
