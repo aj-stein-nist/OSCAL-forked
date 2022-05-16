@@ -3,11 +3,6 @@ name: Validate Website Content
 on:
   workflow_call:
     inputs:
-      needs_checkout:
-        description: 'check out another branch before scanning path'
-        required: true
-        default: true
-        type: boolean
       site_git_ref:
         description: 'git ref, a SHA commit or branch or tag, for the published HTML content'
         required: true
@@ -35,17 +30,12 @@ jobs:
       run: |
         echo SITE_GIT_REF="${{ env.DEFAULT_SITE_GIT_REF }}" >> $GITHUB_ENV
         echo SITE_GIT_REF_PATH="${{ env.DEFAULT_SITE_GIT_REF_PATH }}" >> $GITHUB_ENV
-    # This workflow requires two branches to be checked out
-    # 1) The main branch with all code, including website content link checker config.
-    # 2) The target branch where the website content, rendered from source code, is saved.
-    # Checkout the current branch for reading
     - name: Checkout Latest
       uses: actions/checkout@v3
       with:
         fetch-depth: 0 # this ensures that the tag and commit history are available
       id: checkout_main_workflow
     - name: Checkout git ref of published website content
-      if: inputs.needs_checkout
       uses: actions/checkout@v3
       with:
         path: ${{ env.SITE_GIT_REF_PATH }}
