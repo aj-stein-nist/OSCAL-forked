@@ -27,11 +27,6 @@ on:
         required: false
         default: true
         type: boolean
-      createIssue:
-        description: 'create new GitHub issue if broken links found'
-        required: false
-        default: false
-        type: boolean
     secrets:
       access_token:
         description: 'the access token to use for commits'

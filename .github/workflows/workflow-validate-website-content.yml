@@ -13,6 +13,11 @@ on:
         required: true
         default: 'published'
         type: string
+      createIssue:
+        description: 'create new GitHub issue if broken links found'
+        required: false
+        default: false
+        type: boolean
 jobs:
   schedule-validate-website-links:
     runs-on: ubuntu-latest
