@@ -46,7 +46,6 @@ jobs:
     # Checkout the current branch for reading
     - name: Checkout Latest
       uses: actions/checkout@v3
-      if: inputs.needs_checkout
       with:
         fetch-depth: 0 # this ensures that the tag and commit history are available
       id: checkout_main_workflow
@@ -56,6 +55,8 @@ jobs:
       with:
         path: ${{ env.SITE_GIT_REF_PATH }}
         ref: ${{ env.SITE_GIT_REF }}
+    - run: |
+        ls -lha $(pwd)/published
     - name: Check website HTML content links
       id: linkchecker
       uses: lycheeverse/lychee-action@f1da3291e1d03cbe11a413ae9f16b62fec99e6b6 # v1.4.1
