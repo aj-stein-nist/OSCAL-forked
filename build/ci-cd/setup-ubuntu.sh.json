@@ -1,0 +1,48 @@
+[
+  {
+    "file": "./build/ci-cd/setup-ubuntu.sh",
+    "line": 23,
+    "endLine": 23,
+    "column": 1,
+    "endColumn": 22,
+    "level": "warning",
+    "code": 2164,
+    "message": "Use 'cd ... || exit' or 'cd ... || return' in case cd fails.",
+    "fix": {
+      "replacements": [
+        {
+          "line": 23,
+          "endLine": 23,
+          "precedence": 5,
+          "insertionPoint": "beforeStart",
+          "column": 22,
+          "replacement": " || exit",
+          "endColumn": 22
+        }
+      ]
+    }
+  },
+  {
+    "file": "./build/ci-cd/setup-ubuntu.sh",
+    "line": 27,
+    "endLine": 27,
+    "column": 1,
+    "endColumn": 31,
+    "level": "warning",
+    "code": 2164,
+    "message": "Use 'cd ... || exit' or 'cd ... || return' in case cd fails.",
+    "fix": {
+      "replacements": [
+        {
+          "line": 27,
+          "endLine": 27,
+          "precedence": 5,
+          "insertionPoint": "beforeStart",
+          "column": 31,
+          "replacement": " || exit",
+          "endColumn": 31
+        }
+      ]
+    }
+  }
+]

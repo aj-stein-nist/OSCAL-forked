@@ -1,0 +1,25 @@
+[
+  {
+    "file": "./build/ci-cd/include/init-oscal.sh",
+    "line": 7,
+    "endLine": 7,
+    "column": 15,
+    "endColumn": 85,
+    "level": "warning",
+    "code": 2164,
+    "message": "Use 'cd ... || exit' or 'cd ... || return' in case cd fails.",
+    "fix": {
+      "replacements": [
+        {
+          "line": 7,
+          "endLine": 7,
+          "precedence": 15,
+          "insertionPoint": "beforeStart",
+          "column": 85,
+          "replacement": " || exit",
+          "endColumn": 85
+        }
+      ]
+    }
+  }
+]

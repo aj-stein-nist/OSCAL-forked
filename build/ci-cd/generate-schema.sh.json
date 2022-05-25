@@ -1,0 +1,13 @@
+[
+  {
+    "file": "./build/ci-cd/generate-schema.sh",
+    "line": 24,
+    "endLine": 24,
+    "column": 6,
+    "endColumn": 8,
+    "level": "style",
+    "code": 2181,
+    "message": "Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.",
+    "fix": null
+  }
+]

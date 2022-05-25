@@ -1,0 +1,57 @@
+[
+  {
+    "file": "./build/ci-cd/copy-and-convert-content.sh",
+    "line": 33,
+    "endLine": 33,
+    "column": 6,
+    "endColumn": 8,
+    "level": "style",
+    "code": 2181,
+    "message": "Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.",
+    "fix": null
+  },
+  {
+    "file": "./build/ci-cd/copy-and-convert-content.sh",
+    "line": 148,
+    "endLine": 148,
+    "column": 9,
+    "endColumn": 29,
+    "level": "warning",
+    "code": 2155,
+    "message": "Declare and assign separately to avoid masking return values.",
+    "fix": null
+  },
+  {
+    "file": "./build/ci-cd/copy-and-convert-content.sh",
+    "line": 162,
+    "endLine": 162,
+    "column": 11,
+    "endColumn": 38,
+    "level": "warning",
+    "code": 2155,
+    "message": "Declare and assign separately to avoid masking return values.",
+    "fix": null
+  },
+  {
+    "file": "./build/ci-cd/copy-and-convert-content.sh",
+    "line": 243,
+    "endLine": 243,
+    "column": 9,
+    "endColumn": 29,
+    "level": "warning",
+    "code": 2155,
+    "message": "Declare and assign separately to avoid masking return values.",
+    "fix": null
+  },
+  {
+    "file": "./build/ci-cd/copy-and-convert-content.sh",
+    "line": 275,
+    "endLine": 275,
+    "column": 9,
+    "endColumn": 29,
+    "level": "warning",
+    "code": 2155,
+    "message": "Declare and assign separately to avoid masking return values.",
+    "fix": null
+  }
+]

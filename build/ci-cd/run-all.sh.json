@@ -1,0 +1,79 @@
+[
+  {
+    "file": "./build/ci-cd/run-all.sh",
+    "line": 43,
+    "endLine": 43,
+    "column": 6,
+    "endColumn": 8,
+    "level": "style",
+    "code": 2181,
+    "message": "Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.",
+    "fix": null
+  },
+  {
+    "file": "./build/ci-cd/run-all.sh",
+    "line": 151,
+    "endLine": 151,
+    "column": 8,
+    "endColumn": 10,
+    "level": "style",
+    "code": 2181,
+    "message": "Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.",
+    "fix": null
+  },
+  {
+    "file": "./build/ci-cd/run-all.sh",
+    "line": 157,
+    "endLine": 157,
+    "column": 8,
+    "endColumn": 10,
+    "level": "style",
+    "code": 2181,
+    "message": "Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.",
+    "fix": null
+  },
+  {
+    "file": "./build/ci-cd/run-all.sh",
+    "line": 169,
+    "endLine": 169,
+    "column": 8,
+    "endColumn": 10,
+    "level": "style",
+    "code": 2181,
+    "message": "Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.",
+    "fix": null
+  },
+  {
+    "file": "./build/ci-cd/run-all.sh",
+    "line": 187,
+    "endLine": 187,
+    "column": 8,
+    "endColumn": 10,
+    "level": "style",
+    "code": 2181,
+    "message": "Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.",
+    "fix": null
+  },
+  {
+    "file": "./build/ci-cd/run-all.sh",
+    "line": 193,
+    "endLine": 193,
+    "column": 8,
+    "endColumn": 10,
+    "level": "style",
+    "code": 2181,
+    "message": "Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.",
+    "fix": null
+  },
+  {
+    "file": "./build/ci-cd/run-all.sh",
+    "line": 199,
+    "endLine": 199,
+    "column": 8,
+    "endColumn": 10,
+    "level": "style",
+    "code": 2181,
+    "message": "Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.",
+    "fix": null
+  }
+]

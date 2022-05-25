@@ -1,0 +1,35 @@
+[
+  {
+    "file": "./build/ci-cd/validate-content-conversion-round-trips.sh",
+    "line": 39,
+    "endLine": 39,
+    "column": 6,
+    "endColumn": 8,
+    "level": "style",
+    "code": 2181,
+    "message": "Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.",
+    "fix": null
+  },
+  {
+    "file": "./build/ci-cd/validate-content-conversion-round-trips.sh",
+    "line": 191,
+    "endLine": 191,
+    "column": 15,
+    "endColumn": 35,
+    "level": "warning",
+    "code": 2155,
+    "message": "Declare and assign separately to avoid masking return values.",
+    "fix": null
+  },
+  {
+    "file": "./build/ci-cd/validate-content-conversion-round-trips.sh",
+    "line": 192,
+    "endLine": 192,
+    "column": 15,
+    "endColumn": 35,
+    "level": "warning",
+    "code": 2155,
+    "message": "Declare and assign separately to avoid masking return values.",
+    "fix": null
+  }
+]

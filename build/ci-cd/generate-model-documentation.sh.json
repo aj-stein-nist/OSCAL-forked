@@ -1,0 +1,128 @@
+[
+  {
+    "file": "./build/ci-cd/generate-model-documentation.sh",
+    "line": 52,
+    "endLine": 52,
+    "column": 6,
+    "endColumn": 8,
+    "level": "style",
+    "code": 2181,
+    "message": "Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.",
+    "fix": null
+  },
+  {
+    "file": "./build/ci-cd/generate-model-documentation.sh",
+    "line": 146,
+    "endLine": 146,
+    "column": 13,
+    "endColumn": 30,
+    "level": "warning",
+    "code": 2164,
+    "message": "Use 'cd ... || exit' or 'cd ... || return' in case cd fails.",
+    "fix": {
+      "replacements": [
+        {
+          "line": 146,
+          "endLine": 146,
+          "precedence": 15,
+          "insertionPoint": "beforeStart",
+          "column": 30,
+          "replacement": " || exit",
+          "endColumn": 30
+        }
+      ]
+    }
+  },
+  {
+    "file": "./build/ci-cd/generate-model-documentation.sh",
+    "line": 156,
+    "endLine": 156,
+    "column": 14,
+    "endColumn": 34,
+    "level": "warning",
+    "code": 2164,
+    "message": "Use 'cd ... || exit' or 'cd ... || return' in case cd fails.",
+    "fix": {
+      "replacements": [
+        {
+          "line": 156,
+          "endLine": 156,
+          "precedence": 15,
+          "insertionPoint": "beforeStart",
+          "column": 34,
+          "replacement": " || exit",
+          "endColumn": 34
+        }
+      ]
+    }
+  },
+  {
+    "file": "./build/ci-cd/generate-model-documentation.sh",
+    "line": 156,
+    "endLine": 156,
+    "column": 60,
+    "endColumn": 72,
+    "level": "warning",
+    "code": 2164,
+    "message": "Use 'cd ... || exit' or 'cd ... || return' in case cd fails.",
+    "fix": {
+      "replacements": [
+        {
+          "line": 156,
+          "endLine": 156,
+          "precedence": 15,
+          "insertionPoint": "beforeStart",
+          "column": 72,
+          "replacement": " || exit",
+          "endColumn": 72
+        }
+      ]
+    }
+  },
+  {
+    "file": "./build/ci-cd/generate-model-documentation.sh",
+    "line": 185,
+    "endLine": 185,
+    "column": 12,
+    "endColumn": 26,
+    "level": "warning",
+    "code": 2164,
+    "message": "Use 'cd ... || exit' or 'cd ... || return' in case cd fails.",
+    "fix": {
+      "replacements": [
+        {
+          "line": 185,
+          "endLine": 185,
+          "precedence": 14,
+          "insertionPoint": "beforeStart",
+          "column": 26,
+          "replacement": " || exit",
+          "endColumn": 26
+        }
+      ]
+    }
+  },
+  {
+    "file": "./build/ci-cd/generate-model-documentation.sh",
+    "line": 239,
+    "endLine": 239,
+    "column": 14,
+    "endColumn": 28,
+    "level": "warning",
+    "code": 2164,
+    "message": "Use 'cd ... || exit' or 'cd ... || return' in case cd fails.",
+    "fix": {
+      "replacements": [
+        {
+          "line": 239,
+          "endLine": 239,
+          "precedence": 17,
+          "insertionPoint": "beforeStart",
+          "column": 28,
+          "replacement": " || exit",
+          "endColumn": 28
+        }
+      ]
+    }
+  }
+]

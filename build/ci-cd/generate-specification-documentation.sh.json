@@ -1,0 +1,13 @@
+[
+  {
+    "file": "./build/ci-cd/generate-specification-documentation.sh",
+    "line": 19,
+    "endLine": 19,
+    "column": 6,
+    "endColumn": 8,
+    "level": "style",
+    "code": 2181,
+    "message": "Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.",
+    "fix": null
+  }
+]

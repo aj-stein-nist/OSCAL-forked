@@ -1,0 +1,13 @@
+[
+  {
+    "file": "./build/ci-cd/run-unittests.sh",
+    "line": 25,
+    "endLine": 25,
+    "column": 6,
+    "endColumn": 8,
+    "level": "style",
+    "code": 2181,
+    "message": "Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.",
+    "fix": null
+  }
+]
