@@ -1,0 +1,33 @@
+
+version: 2
+updates:
+
+  - package-ecosystem: "gitsubmodule"
+    directory: "/build/metaschema"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "docker"
+    directory: "/build"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "gomod"
+    directory: "/build"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "npm"
+    directory: "/build"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "pip"
+    directory: "/build/python"
+    schedule:
+      interval: "daily"
