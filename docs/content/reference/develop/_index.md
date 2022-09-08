@@ -12,7 +12,7 @@ sidenav:
 oscal:
     type: "branch"
     remote: "usnistgov/OSCAL"
-    branch: "develop"
+    branch: "feature-metadata-actions-assembly-with-generated-schemas"
     revision: "develop"
     version: "develop"
 ---

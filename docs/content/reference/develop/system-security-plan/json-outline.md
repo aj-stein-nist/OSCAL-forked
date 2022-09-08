@@ -10,7 +10,7 @@ sidenav:
 
 ---
 
-The following outline is a representation of the [JSON format](https://github.com/usnistgov/OSCAL/blob/develop/json/schema/oscal_ssp_schema.json) for this [model](/concepts/layer/implementation/ssp/). For each property, the name links to the corresponding entry in the [JSON Format Reference](../json-reference/). The cardinality and data type are also provided for each property where appropriate.
+The following outline is a representation of the [JSON format](https://github.com/usnistgov/OSCAL/blob/feature-metadata-actions-assembly-with-generated-schemas/json/schema/oscal_ssp_schema.json) for this [model](/concepts/layer/implementation/ssp/). For each property, the name links to the corresponding entry in the [JSON Format Reference](../json-reference/). The cardinality and data type are also provided for each property where appropriate.
 
 <!-- DO NOT REMOVE. Generated text below -->
 {{< rawhtml >}}
@@ -704,6 +704,174 @@ The following outline is a representation of the [JSON format](https://github.co
                      </div>
                      <p><span class="OM-lit">], </span></p>
                   </details>
+                  <details class="OM-entry">
+                     <summary><span class="sq"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions">actions</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-lit"> [ <span class="show-closed">… ], </span></span></span></summary>
+                     <div class="model-container array">
+                        <div class="OM-entry">
+                           <p><span class="OM-lit">An array of <a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions">action</a> objects</span>  <span class="OM-cardinality">[1 to ∞]</span><span class="OM-lit"> { </span></p>
+                           <div class="model-container object">
+                              <div class="OM-entry">
+                                 <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/uuid">uuid</a> <span class="OM-cardinality">[1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#uuid">uuid</a></span><span class="OM-lit">,</span></p>
+                              </div>
+                              <div class="OM-entry">
+                                 <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/date">date</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#datetime-with-timezone">dateTime-with-timezone</a></span><span class="OM-lit">,</span></p>
+                              </div>
+                              <div class="OM-entry">
+                                 <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/type">type</a> <span class="OM-cardinality">[1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#token">token</a></span><span class="OM-lit">,</span></p>
+                              </div>
+                              <div class="OM-entry">
+                                 <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/system">system</a> <span class="OM-cardinality">[1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#uri">uri</a></span><span class="OM-lit">,</span></p>
+                              </div>
+                              <details class="OM-entry">
+                                 <summary><span class="sq"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/props">props</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-lit"> [ <span class="show-closed">… ], </span></span></span></summary>
+                                 <div class="model-container array">
+                                    <div class="OM-entry">
+                                       <p><span class="OM-lit">An array of <a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/props">prop</a> objects</span>  <span class="OM-cardinality">[1 to ∞]</span><span class="OM-lit"> { </span></p>
+                                       <div class="model-container object">
+                                          <div class="OM-entry">
+                                             <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/props/name">name</a> <span class="OM-cardinality">[1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#token">token</a></span><span class="OM-lit">,</span></p>
+                                          </div>
+                                          <div class="OM-entry">
+                                             <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/props/uuid">uuid</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#uuid">uuid</a></span><span class="OM-lit">,</span></p>
+                                          </div>
+                                          <div class="OM-entry">
+                                             <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/props/ns">ns</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#uri">uri</a></span><span class="OM-lit">,</span></p>
+                                          </div>
+                                          <div class="OM-entry">
+                                             <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/props/value">value</a> <span class="OM-cardinality">[1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#string">string</a></span><span class="OM-lit">,</span></p>
+                                          </div>
+                                          <div class="OM-entry">
+                                             <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/props/class">class</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#token">token</a></span><span class="OM-lit">,</span></p>
+                                          </div>
+                                          <div class="OM-entry">
+                                             <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/props/group">group</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#token">token</a></span><span class="OM-lit">,</span></p>
+                                          </div>
+                                          <div class="OM-entry">
+                                             <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/props/remarks">remarks</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#markup-multiline">markup-multiline</a></span><span class="OM-lit">,</span></p>
+                                          </div>
+                                       </div>
+                                       <p><span class="OM-lit"> }</span></p>
+                                    </div>
+                                 </div>
+                                 <p><span class="OM-lit">], </span></p>
+                              </details>
+                              <details class="OM-entry">
+                                 <summary><span class="sq"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/links">links</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-lit"> [ <span class="show-closed">… ], </span></span></span></summary>
+                                 <div class="model-container array">
+                                    <div class="OM-entry">
+                                       <p><span class="OM-lit">An array of <a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/links">link</a> objects</span>  <span class="OM-cardinality">[1 to ∞]</span><span class="OM-lit"> { </span></p>
+                                       <div class="model-container object">
+                                          <div class="OM-entry">
+                                             <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/links/href">href</a> <span class="OM-cardinality">[1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#uri-reference">uri-reference</a></span><span class="OM-lit">,</span></p>
+                                          </div>
+                                          <div class="OM-entry">
+                                             <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/links/rel">rel</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#token">token</a></span><span class="OM-lit">,</span></p>
+                                          </div>
+                                          <div class="OM-entry">
+                                             <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/links/media-type">media-type</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#string">string</a></span><span class="OM-lit">,</span></p>
+                                          </div>
+                                          <div class="OM-entry">
+                                             <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/links/text">text</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#markup-line">markup-line</a></span><span class="OM-lit">,</span></p>
+                                          </div>
+                                       </div>
+                                       <p><span class="OM-lit"> }</span></p>
+                                    </div>
+                                 </div>
+                                 <p><span class="OM-lit">], </span></p>
+                              </details>
+                              <details class="OM-entry">
+                                 <summary><span class="sq"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties">responsible-parties</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-lit"> [ <span class="show-closed">… ], </span></span></span></summary>
+                                 <div class="model-container array">
+                                    <div class="OM-entry">
+                                       <p><span class="OM-lit">An array of <a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties">responsible-party</a> objects</span>  <span class="OM-cardinality">[1 to ∞]</span><span class="OM-lit"> { </span></p>
+                                       <div class="model-container object">
+                                          <div class="OM-entry">
+                                             <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/role-id">role-id</a> <span class="OM-cardinality">[1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#token">token</a></span><span class="OM-lit">,</span></p>
+                                          </div>
+                                          <details class="OM-entry">
+                                             <summary><span class="sq"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/party-uuids">party-uuids</a> <span class="OM-cardinality">[1]</span>: <span class="OM-lit"> [ <span class="show-closed">… ], </span></span></span></summary>
+                                             <div class="model-container array">
+                                                <div class="OM-entry">
+                                                   <p class="OM-line"><span class="OM-lit">An array of <a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/party-uuids">party-uuid</a> strings</span> <span class="OM-cardinality">[1 to ∞]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#uuid">uuid</a></span></p>
+                                                </div>
+                                             </div>
+                                             <p><span class="OM-lit">], </span></p>
+                                          </details>
+                                          <details class="OM-entry">
+                                             <summary><span class="sq"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/props">props</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-lit"> [ <span class="show-closed">… ], </span></span></span></summary>
+                                             <div class="model-container array">
+                                                <div class="OM-entry">
+                                                   <p><span class="OM-lit">An array of <a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/props">prop</a> objects</span>  <span class="OM-cardinality">[1 to ∞]</span><span class="OM-lit"> { </span></p>
+                                                   <div class="model-container object">
+                                                      <div class="OM-entry">
+                                                         <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/props/name">name</a> <span class="OM-cardinality">[1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#token">token</a></span><span class="OM-lit">,</span></p>
+                                                      </div>
+                                                      <div class="OM-entry">
+                                                         <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/props/uuid">uuid</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#uuid">uuid</a></span><span class="OM-lit">,</span></p>
+                                                      </div>
+                                                      <div class="OM-entry">
+                                                         <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/props/ns">ns</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#uri">uri</a></span><span class="OM-lit">,</span></p>
+                                                      </div>
+                                                      <div class="OM-entry">
+                                                         <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/props/value">value</a> <span class="OM-cardinality">[1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#string">string</a></span><span class="OM-lit">,</span></p>
+                                                      </div>
+                                                      <div class="OM-entry">
+                                                         <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/props/class">class</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#token">token</a></span><span class="OM-lit">,</span></p>
+                                                      </div>
+                                                      <div class="OM-entry">
+                                                         <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/props/group">group</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#token">token</a></span><span class="OM-lit">,</span></p>
+                                                      </div>
+                                                      <div class="OM-entry">
+                                                         <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/props/remarks">remarks</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#markup-multiline">markup-multiline</a></span><span class="OM-lit">,</span></p>
+                                                      </div>
+                                                   </div>
+                                                   <p><span class="OM-lit"> }</span></p>
+                                                </div>
+                                             </div>
+                                             <p><span class="OM-lit">], </span></p>
+                                          </details>
+                                          <details class="OM-entry">
+                                             <summary><span class="sq"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/links">links</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-lit"> [ <span class="show-closed">… ], </span></span></span></summary>
+                                             <div class="model-container array">
+                                                <div class="OM-entry">
+                                                   <p><span class="OM-lit">An array of <a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/links">link</a> objects</span>  <span class="OM-cardinality">[1 to ∞]</span><span class="OM-lit"> { </span></p>
+                                                   <div class="model-container object">
+                                                      <div class="OM-entry">
+                                                         <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/links/href">href</a> <span class="OM-cardinality">[1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#uri-reference">uri-reference</a></span><span class="OM-lit">,</span></p>
+                                                      </div>
+                                                      <div class="OM-entry">
+                                                         <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/links/rel">rel</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#token">token</a></span><span class="OM-lit">,</span></p>
+                                                      </div>
+                                                      <div class="OM-entry">
+                                                         <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/links/media-type">media-type</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#string">string</a></span><span class="OM-lit">,</span></p>
+                                                      </div>
+                                                      <div class="OM-entry">
+                                                         <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/links/text">text</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#markup-line">markup-line</a></span><span class="OM-lit">,</span></p>
+                                                      </div>
+                                                   </div>
+                                                   <p><span class="OM-lit"> }</span></p>
+                                                </div>
+                                             </div>
+                                             <p><span class="OM-lit">], </span></p>
+                                          </details>
+                                          <div class="OM-entry">
+                                             <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/responsible-parties/remarks">remarks</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#markup-multiline">markup-multiline</a></span><span class="OM-lit">,</span></p>
+                                          </div>
+                                       </div>
+                                       <p><span class="OM-lit"> }</span></p>
+                                    </div>
+                                 </div>
+                                 <p><span class="OM-lit">], </span></p>
+                              </details>
+                              <div class="OM-entry">
+                                 <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/actions/remarks">remarks</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#markup-multiline">markup-multiline</a></span><span class="OM-lit">,</span></p>
+                              </div>
+                           </div>
+                           <p><span class="OM-lit"> }</span></p>
+                        </div>
+                     </div>
+                     <p><span class="OM-lit">], </span></p>
+                  </details>
                   <div class="OM-entry">
                      <p class="OM-line"><a class="OM-name" href="../json-reference/#/system-security-plan/metadata/remarks">remarks</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-datatype"><a href="/reference/datatypes/#markup-multiline">markup-multiline</a></span><span class="OM-lit">,</span></p>
                   </div>
@@ -972,7 +1140,7 @@ The following outline is a representation of the [JSON format](https://github.co
                                        <p><span class="OM-lit">], </span></p>
                                     </details>
                                     <details class="OM-entry">
-                                       <summary><a class="OM-name" href="../json-reference/#/system-security-plan/system-characteristics/system-information/information-types/confidentiality-impact">confidentiality-impact</a> <span class="OM-cardinality">[1]</span>: <span class="OM-lit">{<span class="show-closed"> … }, </span></span></summary>
+                                       <summary><a class="OM-name" href="../json-reference/#/system-security-plan/system-characteristics/system-information/information-types/confidentiality-impact">confidentiality-impact</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-lit">{<span class="show-closed"> … }, </span></span></summary>
                                        <div class="model-container object">
                                           <details class="OM-entry">
                                              <summary><span class="sq"><a class="OM-name" href="../json-reference/#/system-security-plan/system-characteristics/system-information/information-types/confidentiality-impact/props">props</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-lit"> [ <span class="show-closed">… ], </span></span></span></summary>
@@ -1044,7 +1212,7 @@ The following outline is a representation of the [JSON format](https://github.co
                                        <p><span class="OM-lit"> }, </span></p>
                                     </details>
                                     <details class="OM-entry">
-                                       <summary><a class="OM-name" href="../json-reference/#/system-security-plan/system-characteristics/system-information/information-types/integrity-impact">integrity-impact</a> <span class="OM-cardinality">[1]</span>: <span class="OM-lit">{<span class="show-closed"> … }, </span></span></summary>
+                                       <summary><a class="OM-name" href="../json-reference/#/system-security-plan/system-characteristics/system-information/information-types/integrity-impact">integrity-impact</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-lit">{<span class="show-closed"> … }, </span></span></summary>
                                        <div class="model-container object">
                                           <details class="OM-entry">
                                              <summary><span class="sq"><a class="OM-name" href="../json-reference/#/system-security-plan/system-characteristics/system-information/information-types/integrity-impact/props">props</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-lit"> [ <span class="show-closed">… ], </span></span></span></summary>
@@ -1116,7 +1284,7 @@ The following outline is a representation of the [JSON format](https://github.co
                                        <p><span class="OM-lit"> }, </span></p>
                                     </details>
                                     <details class="OM-entry">
-                                       <summary><a class="OM-name" href="../json-reference/#/system-security-plan/system-characteristics/system-information/information-types/availability-impact">availability-impact</a> <span class="OM-cardinality">[1]</span>: <span class="OM-lit">{<span class="show-closed"> … }, </span></span></summary>
+                                       <summary><a class="OM-name" href="../json-reference/#/system-security-plan/system-characteristics/system-information/information-types/availability-impact">availability-impact</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-lit">{<span class="show-closed"> … }, </span></span></summary>
                                        <div class="model-container object">
                                           <details class="OM-entry">
                                              <summary><span class="sq"><a class="OM-name" href="../json-reference/#/system-security-plan/system-characteristics/system-information/information-types/availability-impact/props">props</a> <span class="OM-cardinality">[0 or 1]</span>: <span class="OM-lit"> [ <span class="show-closed">… ], </span></span></span></summary>
