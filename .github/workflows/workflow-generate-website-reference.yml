@@ -157,7 +157,7 @@ jobs:
     - name: Publish Generated Pages
       # only do this on master
       if: github.event.inputs.commit_resources == 'true' || inputs.commit_resources == true
-      uses: stefanzweifel/git-auto-commit-action@fd157da78fa13d9383e5580d1fd1184d89554b51
+      uses: stefanzweifel/git-auto-commit-action@0b007fbd1180b8e3a3668b21c6517392fe8f26eb
       with:
         repository: ${{ env.MAIN_PATH }}
         file_pattern: docs
