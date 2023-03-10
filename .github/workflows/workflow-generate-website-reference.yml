@@ -94,7 +94,7 @@ jobs:
         mvn dependency:copy-dependencies -DoutputDirectory="${JAVA_CLASSPATH}"
     # Install Hugo
     - name: Store Hugo Executable in Cache
-      uses: actions/cache@58c146cc91c5b9e778e71775dfe9bf1442ad9a12
+      uses: actions/cache@940f3d7cf195ba83374c77632d1e2cbb2f24ae68
       with:
         path: /home/runner/go/bin/hugo
         key: ${{ runner.os }}-hugo-${{ hashFiles(format('{0}/build/go.sum', env.BRANCH_PATH)) }}
