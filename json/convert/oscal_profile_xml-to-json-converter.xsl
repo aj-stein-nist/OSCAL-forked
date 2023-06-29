@@ -267,7 +267,13 @@
       <assembly name="import" gi="import">
          <xsl:apply-templates select="@href"/>
          <xsl:apply-templates select="include-all"/>
-         <xsl:apply-templates select="include-controls"/>
+         <xsl:for-each-group select="include-controls" group-by="true()">
+            <group in-json="ARRAY" key="include-controls">
+               <xsl:apply-templates select="current-group()">
+                  <xsl:with-param name="with-key" select="false()"/>
+               </xsl:apply-templates>
+            </group>
+         </xsl:for-each-group>
          <xsl:for-each-group select="exclude-controls" group-by="true()">
             <group in-json="ARRAY" key="exclude-controls">
                <xsl:apply-templates select="current-group()">
@@ -923,23 +929,13 @@
          <xsl:value-of select="."/>
       </flag>
    </xsl:template>
-   <xsl:template match="profile/import/include-controls/@with-child-controls"
+   <xsl:template match="profile/import/include-controls/@with-child-controls | profile/import/exclude-controls/@with-child-controls | profile/merge/custom//group/insert-controls/include-controls/@with-child-controls | profile/merge/custom//group/insert-controls/exclude-controls/@with-child-controls | profile/merge/custom/insert-controls/include-controls/@with-child-controls | profile/merge/custom/insert-controls/exclude-controls/@with-child-controls"
                   xpath-default-namespace="http://csrc.nist.gov/ns/oscal/1.0">
       <flag in-json="string"
              as-type="token"
              name="with-child-controls"
              key="with-child-controls"
              gi="with-child-controls">
-         <xsl:value-of select="."/>
-      </flag>
-   </xsl:template>
-   <xsl:template match="profile/import/include-controls/@with-parent-controls"
-                  xpath-default-namespace="http://csrc.nist.gov/ns/oscal/1.0">
-      <flag in-json="string"
-             as-type="token"
-             name="with-parent-controls"
-             key="with-parent-controls"
-             gi="with-parent-controls">
          <xsl:value-of select="."/>
       </flag>
    </xsl:template>
@@ -950,16 +946,6 @@
              name="pattern"
              key="pattern"
              gi="pattern">
-         <xsl:value-of select="."/>
-      </flag>
-   </xsl:template>
-   <xsl:template match="profile/import/exclude-controls/@with-child-controls | profile/merge/custom//group/insert-controls/include-controls/@with-child-controls | profile/merge/custom//group/insert-controls/exclude-controls/@with-child-controls | profile/merge/custom/insert-controls/include-controls/@with-child-controls | profile/merge/custom/insert-controls/exclude-controls/@with-child-controls"
-                  xpath-default-namespace="http://csrc.nist.gov/ns/oscal/1.0">
-      <flag in-json="string"
-             as-type="token"
-             name="with-child-controls"
-             key="with-child-controls"
-             gi="with-child-controls">
          <xsl:value-of select="."/>
       </flag>
    </xsl:template>
@@ -2216,17 +2202,11 @@
       </field>
    </xsl:template>
    <xsl:template match="profile/import/include-controls"
-                  priority="6"
+                  priority="7"
                   xpath-default-namespace="http://csrc.nist.gov/ns/oscal/1.0">
       <xsl:param name="with-key" select="true()"/>
-      <assembly name="include-controls"
-                 key="include-controls"
-                 gi="include-controls">
-         <xsl:if test="$with-key">
-            <xsl:attribute name="key">include-controls</xsl:attribute>
-         </xsl:if>
+      <assembly name="select-control-by-id" gi="include-controls">
          <xsl:apply-templates select="@with-child-controls"/>
-         <xsl:apply-templates select="@with-parent-controls"/>
          <xsl:for-each-group select="with-id" group-by="true()">
             <group in-json="ARRAY" key="with-ids">
                <xsl:apply-templates select="current-group()">

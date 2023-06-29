@@ -77,48 +77,10 @@
                          type="oscal-control-common-include-all-ASSEMBLY"
                          minOccurs="1"
                          maxOccurs="1"/>
-            <xs:element name="include-controls" minOccurs="1" maxOccurs="unbounded">
-               <xs:complexType>
-                  <xs:annotation>
-                     <xs:appinfo>
-                        <m:formal-name>Select Control</m:formal-name>
-                        <m:description>Select a control or controls from an imported control set.</m:description>
-                     </xs:appinfo>
-                     <xs:documentation>
-                        <b>Select Control</b>: Select a control or controls from an imported control set.</xs:documentation>
-                  </xs:annotation>
-                  <xs:sequence>
-                     <xs:element name="with-id"
-                                  type="oscal-profile-with-id-FIELD"
-                                  minOccurs="0"
-                                  maxOccurs="unbounded"/>
-                     <xs:element name="matching"
-                                  type="oscal-profile-matching-ASSEMBLY"
-                                  minOccurs="0"
-                                  maxOccurs="unbounded"/>
-                  </xs:sequence>
-                  <xs:attribute name="with-child-controls" type="TokenDatatype">
-                     <xs:annotation>
-                        <xs:appinfo>
-                           <m:formal-name>Include Contained Controls with Control</m:formal-name>
-                           <m:description>When a control is included, whether its child (dependent) controls are also included.</m:description>
-                        </xs:appinfo>
-                        <xs:documentation>
-                           <b>Include Contained Controls with Control</b>: When a control is included, whether its child (dependent) controls are also included.</xs:documentation>
-                     </xs:annotation>
-                  </xs:attribute>
-                  <xs:attribute name="with-parent-controls" type="TokenDatatype">
-                     <xs:annotation>
-                        <xs:appinfo>
-                           <m:formal-name>Include Parent Controls with Control</m:formal-name>
-                           <m:description>When a control is included, whether its parent (ancestor) controls are also included.</m:description>
-                        </xs:appinfo>
-                        <xs:documentation>
-                           <b>Include Parent Controls with Control</b>: When a control is included, whether its parent (ancestor) controls are also included.</xs:documentation>
-                     </xs:annotation>
-                  </xs:attribute>
-               </xs:complexType>
-            </xs:element>
+            <xs:element name="include-controls"
+                         type="oscal-profile-select-control-by-id-ASSEMBLY"
+                         minOccurs="1"
+                         maxOccurs="unbounded"/>
          </xs:choice>
          <xs:element name="exclude-controls"
                       type="oscal-profile-select-control-by-id-ASSEMBLY"
@@ -558,11 +520,11 @@
    <xs:complexType name="oscal-profile-insert-controls-ASSEMBLY">
       <xs:annotation>
          <xs:appinfo>
-            <m:formal-name>Select Controls</m:formal-name>
+            <m:formal-name>Insert Controls</m:formal-name>
             <m:description>Specifies which controls to use in the containing context.</m:description>
          </xs:appinfo>
          <xs:documentation>
-            <b>Select Controls</b>: Specifies which controls to use in the containing context.</xs:documentation>
+            <b>Insert Controls</b>: Specifies which controls to use in the containing context.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:choice>
